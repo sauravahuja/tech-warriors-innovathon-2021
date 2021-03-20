@@ -29,7 +29,10 @@
 .fixed {
     position: fixed !important;
 }
-
+.flexed{
+    display: flex;
+    justify-content: space-between;
+}
 .container {
     padding-left: 180px !important;
     padding-right: 180px !important;
@@ -40,20 +43,20 @@
 **************************************************************************************************************************/
 .l-dash {
     display: inline-block;
-    padding: 2px 70px;
-    background: #fc3;
+    padding: 1px 180px;
+    background: #fefefe;
 }
 
 .m-dash {
     display: inline-block;
-    padding: 2px 50px;
-    background: #fc3;
+    padding: 2px 70px;
+    background: #fefefe;
 }
 
 .s-dash {
     display: inline-block;
     padding: 2px 30px;
-    background: #fc3;
+    background: #fefefe;
 }
 
 /**************************************************************************************************************************

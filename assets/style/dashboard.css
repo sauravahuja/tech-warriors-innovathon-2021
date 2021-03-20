@@ -1,0 +1,109 @@
+/***************************************************************************
+                            Variables
+***************************************************************************/
+:root {
+  --blue: #0f3a57;
+  --white: #eef6fc;
+}
+
+/* USAGE
+.container {
+  color: var(--blue);
+  background-color: var(--white);
+}
+*/
+/***************************************************************************
+                                  GENERAL 
+***************************************************************************/
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+/***************************************************************************
+                            DASHBOARD SIDE PANEL
+***************************************************************************/
+#dashboard {
+  display: flex;
+}
+
+#side-panel {
+  background-color: var(--blue);
+  color: var(--white);
+  width: 25%;
+  height: 100vh;
+}
+
+.side-contents {
+  /* padding: 10px 30px; */
+}
+
+.personal-information {
+  padding: 10px;
+}
+
+.greeting {
+  font-size: 28px;
+}
+
+.section-name {
+  font-size: 20px;
+}
+
+.side-contents i {
+  padding: 5px;
+}
+
+.section-products,
+.section-company,
+.section-category,
+.section-sales {
+  background-color: #285878;
+  padding: 20px;
+  /* margin: 15px 0; */
+  border: solid 1px rgba(255, 255, 255, 0.3);
+}
+
+#product-content,
+#company-content,
+#category-content {
+  background: #D2EDFF;
+  color: var(--blue);
+  padding: 10px;
+  cursor: pointer;
+}
+
+@keyframes active-inactive {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes inactive-active {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.active {
+  display: block;
+  animation: inactive-active .5s;
+}
+
+.inactive {
+  animation: active-inactive .5s;
+  display: none;
+}
+
+#dashboard-panel img{
+  transform: translate(240px,50px);
+}
