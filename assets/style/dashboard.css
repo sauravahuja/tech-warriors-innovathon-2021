@@ -103,7 +103,31 @@
   animation: active-inactive .5s;
   display: none;
 }
-
-#dashboard-panel img{
+***************************************************************************
+                            FIRST DASHBOARD 
+***************************************************************************/
+#first-dashboard-panel img{
   transform: translate(240px,50px);
+}
+
+***************************************************************************
+                            FIRST DASHBOARD 
+***************************************************************************/
+#{
+  transform: translate(240px,50px);
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
