@@ -20,32 +20,19 @@
     <div class="login-container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="#" class="sign-in-form">
-                    <h2 class="title">Sign in</h2>
+                <form action="./login.php" class="sign-in-form" method="POST">
+                    <h2 class="title">Login</h2>
                     <div class="input-field">
                         <i class="fa fa-user"></i>
-                        <input type="text" placeholder="Username" />
+                        <input type="text" placeholder="Username" name="username" class="form-action" required />
                     </div>
                     <div class="input-field">
                         <i class="fa fa-lock"></i>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" placeholder="Password" name="password" class="form-action" required />
                     </div>
                     <input type="submit" value="Login" class="btn solid" />
-                    <p class="social-text">Or Sign in with social platforms</p>
-                    <div class="social-media">
-                        <a href="#" class="social-icon">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                    </div>
+                    
+                    
                 </form>
                 <form action="#" class="sign-up-form">
                     <h2 class="title">Sign up</h2>
@@ -66,21 +53,7 @@
                         <input type="text" placeholder="Role" />
                     </div>
                     <input type="submit" class="btn" value="Sign up" />
-                    <p class="social-text">Or Sign up with social platforms</p>
-                    <div class="social-media">
-                        <a href="#" class="social-icon">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                    </div>
+                   
                 </form>
             </div>
         </div>
@@ -112,6 +85,9 @@
             </div>
         </div>
     </div>
+
+
+   
     <script src="../assets/script/login-reg.js"></script>
     
 </body>
