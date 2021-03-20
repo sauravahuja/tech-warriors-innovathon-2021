@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,8 +43,8 @@
     <section id="dashboard">
         <section id="side-panel">
             <div class="personal-information">
-                <h1 class="greeting">Hello, John Doe</h1>
-                <p class="role p-t-10">Role: Admin</p>
+                <h1 class="greeting">Hello, <?= $_SESSION['name']?></h1>
+                <p class="role p-t-10">Role: <?= $_SESSION['role']?></p>
                 <p class="general-description p-t-10">Inventory Management System</p>
                 <p class="l-dash m-t-20"></p>
             </div>
