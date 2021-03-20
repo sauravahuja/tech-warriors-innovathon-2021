@@ -1,0 +1,13 @@
+.btn-box{
+    padding: 10px 20px;
+    border: 1px  solid var(--blue);
+    /* border-radius: 30px; */
+    color: #111;
+    transition: all .3s ease-in-out;
+    margin: 2px;
+}
+.btn-box:hover{
+    color: #eee;
+    background: var(--blue);
+    border: 1px solid transparent;
+}
