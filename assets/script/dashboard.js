@@ -84,3 +84,11 @@ function philosophyClick() {
 
     }
 }
+
+document.getElementById("product-view").addEventListener("click", productviewclick);
+const firstpanel = document.getElementById("first-dashboard-panel")
+const viewProduct = document.getElementById("all-product-panel")
+function productviewclick(){
+    firstpanel.style.display="none";
+    viewProduct.style.display="block";
+}
