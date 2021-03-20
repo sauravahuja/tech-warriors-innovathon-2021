@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Buttons</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: #FFF;
+        }
+        
+        body{
+            background: #eee;
+        }
+    /*********************************************************************************************************************
+                                                        btn-fancy
+    *********************************************************************************************************************/
+        .btn-fancy-content {
+            padding: 10px;
+            border: 1px solid #111;
+            color: #121212;
+            transition: all .3s ease-in-out;
+        }
+
+        .btn-fancy:before {
+            content: "";
+            padding-right: 20px;
+            border-top: #111 1px solid;
+            font-size: 5px;
+            transition: all .3s ease-in-out;
+        }
+
+        .btn-fancy:after {
+            content: "";
+            padding-right: 20px;
+            border-top: #111 1px solid;
+            font-size: 5px;
+            transition: all .3s ease-in-out;
+        }
+
+        .btn-fancy-content:hover {
+            background: #fc3;
+            color: #222;
+            border: 1px solid transparent;
+        }
+
+        .btn-fancy:hover::before {
+            border-color: #fc3;
+        }
+
+        .btn-fancy:hover::after {
+            border-color: #fc3;
+        }
+
+/*********************************************************************************************************************
+                                                        btn-gradient
+    *********************************************************************************************************************/
+    
+        .btn-gradient {
+            padding: 10px;
+            background-size: 200% auto;
+            background-image: linear-gradient(to right, #5c9320 0%, #63c600 51%, #5c9320 100%);
+            transition: all .3s ease-in-out;
+        }
+
+        .btn-gradient:hover {
+            background-position: right;
+        }
+        
+    /*********************************************************************************************************************
+                                                        btn-rounded
+    *********************************************************************************************************************/
+    
+        .btn-rounded{
+            padding: 10px 20px;
+            border: 1px  solid #5C9320;
+            border-radius: 30px;
+            color: #111;
+            transition: all .3s ease-in-out;
+        }
+        .btn-rounded:hover{
+            color: #eee;
+            background: #5C9320;
+            border: 1px solid transparent;
+        }
+    /*********************************************************************************************************************
+                                                        btn-oneplus
+    *********************************************************************************************************************/
+    
+        .btn-oneplus{
+            position: relative;
+            border: #111 solid 1px;
+            padding: 10px 20px;
+            color: #111;
+            transition: all .3s ease-in-out;
+        }
+        .btn-oneplus:hover{
+            color: #fff;
+        }
+        .btn-oneplus:hover span{
+            transform: translateY(0);
+            opacity: 1;
+            border-radius: 0;
+        }
+        .btn-oneplus span{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background: #111;
+            width: 100%;
+            transform: translateX(-100%);
+            transition: all .3s ease-in-out;
+            opacity: 0;
+            z-index: -1;
+            border-top-right-radius: 20px; 
+            border-bottom-right-radius: 20px;
+        }
+        .oneplus-btn-container{
+            overflow: hidden;
+            display: inline-block;
+            line-height: 50px;
+            margin: 0;
+        }
+    /*********************************************************************************************************************
+                                                        DONT CARE
+    *********************************************************************************************************************/
+    
+        h1{
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>BUTTONS</h2>
+    <a href="" class="btn-fancy"><span class="btn-fancy-content">Button 1</span></a>
+    <h1></h1>
+    <a href="" class="btn-gradient">BUTTON 2</a>
+    <h1></h1>
+    <a href="" class="btn-rounded">BUTTON 3</a>
+    <h1></h1>
+    <p class="oneplus-btn-container"><a href="" class="btn-oneplus">BUTTON 3<span></span></a></p>
+</body>
+
+</html>
