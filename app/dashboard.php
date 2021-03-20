@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +16,8 @@
         content="Porfolio of an IT engineering student named as Saurav Ahuja. Studies in Thadomal Shahani Engineering College. Expertise in Web Development with project management and UI/UX designing.">
     <meta name="keywords"
         content="Portfolio, UI, UX, Mobile App, Web Design, Web Development, Responsive website, Creative website, Video, Creative Content, Engineering, IT, Skills, Project,">
-
+       
+    
     <!-- Favicon -->
     <link rel="shortcut icon" href="../assets/images/favicon.png">
 
@@ -33,6 +31,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/style/helper-class.css">
+    <link rel="stylesheet" href="../assets/style/button.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/style/dashboard.css">
@@ -43,8 +42,8 @@
     <section id="dashboard">
         <section id="side-panel">
             <div class="personal-information">
-                <h1 class="greeting">Hello, <?= $_SESSION['name']?></h1>
-                <p class="role p-t-10">Role: <?= $_SESSION['role']?></p>
+                <h1 class="greeting">Hello, John Doe</h1>
+                <p class="role p-t-10">Role: Admin</p>
                 <p class="general-description p-t-10">Inventory Management System</p>
                 <p class="l-dash m-t-20"></p>
             </div>
@@ -93,49 +92,50 @@
         <!-- <section id="first-dashboard-panel">
             <img src="../assets/images/dashboard/Mesa de trabajo 1.png" alt="" height="600px" width="600px">
         </section> -->
-        <section id="view-products">
-            <div class="content-box-md">
-                <div class="container">
-                    <table>
-                        <tr>
-                            <th>Company</th>
-                            <th>Contact</th>
-                            <th>Country</th>
-                        </tr>
-                        <tr>
-                            <td>Alfreds Futterkiste</td>
-                            <td>Maria Anders</td>
-                            <td>Germany</td>
-                        </tr>
-                        <tr>
-                            <td>Centro comercial Moctezuma</td>
-                            <td>Francisco Chang</td>
-                            <td>Mexico</td>
-                        </tr>
-                        <tr>
-                            <td>Ernst Handel</td>
-                            <td>Roland Mendel</td>
-                            <td>Austria</td>
-                        </tr>
-                        <tr>
-                            <td>Island Trading</td>
-                            <td>Helen Bennett</td>
-                            <td>UK</td>
-                        </tr>
-                        <tr>
-                            <td>Laughing Bacchus Winecellars</td>
-                            <td>Yoshi Tannamuri</td>
-                            <td>Canada</td>
-                        </tr>
-                        <tr>
-                            <td>Magazzini Alimentari Riuniti</td>
-                            <td>Giovanni Rovelli</td>
-                            <td>Italy</td>
-                        </tr>
-                    </table>
-                </div>
+        <div class="table-container">
+
+            <div class="row">
+              <div class="col-md-12">
+                <table class="table table-bordered" id="editableTable">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Date of Purchase</th>
+                      <th>Buying Data</th>
+                      <th>Selling Date</th>
+                      <th>Company Name</th>
+                      <th>Model No</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-id="1">
+                      <td data-field="ID">Dave Gamache</td>
+                      <td data-field="Name">May 19, 2015</td>
+                      <td data-field="Date of Purchase">26</td>
+                      <td data-field="Buying Data">Male</td>
+                      <td data-field="Selling Date">Male</td>
+                      <td data-field="Company Name">Male</td>
+                      <td data-field="Model No">Male</td>
+                     
+                      <td>
+                        <a class="btn-box" title="Edit">
+                          <i class="fa fa-pencil"></i>
+                        </a>
+                        
+                        <a class="btn-box" title="Delete">
+                          <i class="fa fa-trash"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    
+                    
+                  </tbody>
+                </table>
+              </div>
             </div>
-        </section>
+          </div>
     </section>
 
     <script src="../assets/script/jquery/jquery.min.js"></script>
