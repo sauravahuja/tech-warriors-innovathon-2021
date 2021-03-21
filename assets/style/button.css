@@ -20,6 +20,7 @@
     color: #FFF;
     transition: all .3s ease-in-out;
     margin: 2px;
+    text-decoration: none;
 }
 .btn-box-light:hover{
     color: var(--white);
@@ -28,7 +29,7 @@
 }
 
 .btn-box-general{
-    padding: 10px 140px;
+    padding: 10px 70px;
     border: 1px  solid var(--white);
     color: #FFF;
     transition: all .3s ease-in-out;

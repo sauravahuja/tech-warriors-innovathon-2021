@@ -111,7 +111,7 @@ session_start();
         <?php
         }
         ?>
-        <div class="m-t-30">
+        <div class="m-t-20 text-center">
           <?php
           if ($_SESSION['role'] == 'agent' || $_SESSION['role'] == 'Agent') {
           ?>
@@ -119,6 +119,9 @@ session_start();
           <?php
           }
           ?>
+          <br>
+        </div>
+        <div class="m-t-20 text-center">
           <?php
           if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'Admin') {
           ?>
@@ -126,22 +129,19 @@ session_start();
           <?php
           }
           ?>
+          <br>
         </div>
-        <!-- <div class="section-request flexed">
-          <a href="./newRequest.html" id="add-request" class="section-name text-capitalize">Request Product</a>
-          <div class="text-right">
-            <i  class="fa fa-angle-right text-right"></i>
-          </div>
+        <div class="m-t-30 text-center">
+          <?php
+          if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'Admin') {
+          ?>
+            <a href="./generateBarcode.html" class="btn-box-general">Generate Barcode</a>
+          <?php
+          }
+          ?>
         </div>
-        <br>
-lass="section-request flexed">
-          <p id="view-requested" class="section-name text-capitalize">Requested Products</p>
-          <div class="text-right">
-            <i  class="fa fa-angle-right text-right"></i>
-          </div>
-        </div> -->
 
-        <div id="logout">
+        <div id="logout" class="text-center m-t-30">
           <a class="btn-box-light" href="../app/login.html">Logout</a>
         </div>
       </div>
