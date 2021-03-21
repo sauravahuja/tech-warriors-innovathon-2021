@@ -86,13 +86,23 @@ function philosophyClick() {
 }
 
 document.getElementById("product-view").addEventListener("click", productviewclick);
+
 const firstpanel = document.getElementById("first-dashboard-panel")
 const viewProduct = document.getElementById("all-product-panel")
 const addProduct = document.getElementById("add-product-panel")
+const viewCompany = document.getElementById("all-company-panel")
+const addCompany = document.getElementById("add-company-panel")
+const viewCategory = document.getElementById("all-category-panel")
+const addCategory = document.getElementById("add-category-panel")
+
 function productviewclick(){
     firstpanel.style.display="none";
     addProduct.style.display="none";
     viewProduct.style.display="block";
+    viewCompany.style.display="none";
+    addCompany.style.display="none";
+    viewCategory.style.display="none";
+    addCategory.style.display="none";
 }
 
 document.getElementById("add-product").addEventListener("click", addproductclick);
@@ -101,4 +111,57 @@ function addproductclick(){
     firstpanel.style.display="none";
     addProduct.style.display="block";
     viewProduct.style.display="none";
+    viewCompany.style.display="none";
+    addCompany.style.display="none";
+    viewCategory.style.display="none";
+    addCategory.style.display="none";
+}
+
+document.getElementById("company-view").addEventListener("click", companyviewclick);
+
+function companyviewclick(){
+    firstpanel.style.display="none";
+    addProduct.style.display="none";
+    viewProduct.style.display="none";
+    viewCompany.style.display="block";
+    addCompany.style.display="none";
+    viewCategory.style.display="none";
+    addCategory.style.display="none";
+}
+document.getElementById("add-company").addEventListener("click", addCompanyclick);
+
+function addCompanyclick(){
+    
+    firstpanel.style.display="none";
+    addProduct.style.display="none";
+    viewProduct.style.display="none";
+    viewCompany.style.display="none";
+    addCompany.style.display="block";
+    viewCategory.style.display="none";
+    addCategory.style.display="none";
+}
+
+document.getElementById("category-view").addEventListener("click", categoryviewclick);
+
+function categoryviewclick(){
+    firstpanel.style.display="none";
+    addProduct.style.display="none";
+    viewProduct.style.display="none";
+    viewCompany.style.display="none";
+    addCompany.style.display="none";
+    viewCategory.style.display="block";
+    addCategory.style.display="none";
+}
+
+document.getElementById("add-category").addEventListener("click", addCategoryclick);
+
+function addCategoryclick(){
+    
+    firstpanel.style.display="none";
+    addProduct.style.display="none";
+    viewProduct.style.display="none";
+    viewCompany.style.display="none";
+    addCompany.style.display="none";
+    viewCategory.style.display="none";
+    addCategory.style.display="block";
 }
