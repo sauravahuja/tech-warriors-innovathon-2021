@@ -54,9 +54,15 @@ session_start();
           </div>
         </div>
         <div id="product-content" class="inactive">
+          <?php
+          if($_SESSION['role'] == "Admin" || $_SESSION['role'] == "admin"){
+          ?>
           <p class="p-10" id="add-product">Add New</p>
+          <?php
+          }
+          ?>
           <p class="p-10" id="product-view">View All</p>
-        </div>
+          </div>
         <br>
         <div class="section-company flexed">
           <p class="section-name text-capitalize">Company</p>
@@ -65,8 +71,14 @@ session_start();
           </div>
         </div>
         <div id="company-content" class="inactive">
-          <p class="p-10">Add New</p>
-          <p class="p-10">View All</p>
+          <?php
+            if($_SESSION['role'] == "Admin" || $_SESSION['role'] == "admin"){
+          ?>
+          <p class="p-10" id="add-company">Add New</p>
+          <?php
+            }
+          ?>
+          <p class="p-10" id="company-view">View All</p>
         </div>
         <br>
         <div class="section-category flexed">
@@ -76,8 +88,14 @@ session_start();
           </div>
         </div>
         <div id="category-content" class="inactive">
-          <p class="p-10">Add New</p>
-          <p class="p-10">View All</p>
+          <?php
+          if($_SESSION['role'] == "Admin" || $_SESSION['role'] == "admin"){
+          ?>
+          <p class="p-10" id="add-category">Add New</p>
+          <?php
+          }
+          ?>
+          <p class="p-10" id="category-view">View All</p>
         </div>
         <br>
         <div class="section-sales flexed">
@@ -88,9 +106,11 @@ session_start();
         </div>
       </div>
     </section>
+
     <section id="first-dashboard-panel">
       <img src="../assets/images/dashboard/Mesa de trabajo 1.png" alt="">
     </section>
+
     <section id="all-product-panel">
       <div class="table-container">
         <div class="row">
@@ -224,6 +244,218 @@ session_start();
         <br>
         <button type="submit">Add Product</button>
       </form>
+    </section>
+
+    <section id="all-company-panel">
+      <div class="table-container">
+        <div class="row">
+          <div class="">
+            <table class="table table-bordered" id="editableTable">
+              <h1 class="p-40">View All Companies</h1>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Company Name</th>
+                  <th>Location</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <?php
+                  $servername = "localhost";
+                  $username = "sauravahuja";
+                  $password = "sauravahuja";
+                  $dbname = "inv_mgmt";
+                  $port = "8111";
+
+                  $conn = new mysqli($servername, $username, $password, $dbname, $port);
+                  // Check connection
+                  if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                  } else {
+                    if ($_SESSION['role'] == "Admin" || $_SESSION['role'] == "admin") {
+                      $sql = "select id,company_name,location from product_compnay";
+                      $result = mysqli_query($conn, $sql);
+                      if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while ($row = mysqli_fetch_assoc($result)) {
+                  ?>
+                          <td data-field="ID"><?php echo $row['id'] ?></td>
+                          <td data-field="Date of Purchase"><?php echo $row['company_name'] ?></td>
+                          <td data-field="Buying Data"><?php echo $row['location'] ?></td>
+                          <td>
+                            <a class="btn-box" title="Edit">
+                              <i class="fa fa-pencil"></i>
+                            </a>
+
+                            <a class="btn-box" title="Delete">
+                              <i class="fa fa-trash"></i>
+                            </a>
+                          </td>
+                </tr>
+              <?php
+                        }
+                      }
+                    } else {
+                      $sql = "select id,company_name,location from product_compnay where agent_name='" . $_SESSION['name'] . "'";
+                      $result = mysqli_query($conn, $sql);
+                      if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while ($row = mysqli_fetch_assoc($result)) {
+              ?>
+                <td data-field="ID"><?php echo $row['id'] ?></td>
+                <td data-field="Date of Purchase"><?php echo $row['company_name'] ?></td>
+                <td data-field="Buying Data"><?php echo $row['location'] ?></td>
+                <td>
+                  <a class="btn-box" title="Edit">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+
+                  <a class="btn-box" title="Delete">
+                    <i class="fa fa-trash"></i>
+                  </a>
+                </td>
+                </tr>
+        <?php
+                        }
+                      }
+                    }
+                  }
+        ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="add-company-panel">
+
+      <div class="content-box-md">
+        <form action="./addCompany.php" class="mainWrap" method="POST">
+          <h1 class="p-b-20">Add a New Company</h1>
+          <label for="">Company Name</label>
+          <br>
+          <input placeholder="Company Name" type="text" name="company_name" />
+          <br>
+          <label for="">Location</label>
+          <br>
+          <input placeholder="Location" type="text" name="location" />
+          <br>
+          <label for="">Agent Name</label>
+          <br>
+          <input placeholder="Agent Name" type="text" name="agent_name" />
+          <br>
+          <button type="submit">Add Company</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="all-category-panel">
+      <div class="table-container">
+        <div class="row">
+          <div class="">
+            <table class="table table-bordered" id="editableTable">
+              <h1 class="p-40">View All Category</h1>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Category Type</th>
+                  <th>Category Description</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <?php
+                  $servername = "localhost";
+                  $username = "sauravahuja";
+                  $password = "sauravahuja";
+                  $dbname = "inv_mgmt";
+                  $port = "8111";
+
+                  $conn = new mysqli($servername, $username, $password, $dbname, $port);
+                  // Check connection
+                  if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                  } else {
+                    if ($_SESSION['role'] == "Admin" || $_SESSION['role'] == "admin") {
+                      $sql = "select id,category_type,category_description from category";
+                      $result = mysqli_query($conn, $sql);
+                      if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while ($row = mysqli_fetch_assoc($result)) {
+                  ?>
+                          <td data-field="ID"><?php echo $row['id'] ?></td>
+                          <td data-field=""><?php echo $row['category_type'] ?></td>
+                          <td data-field="Buying Data"><?php echo $row['category_description'] ?></td>
+                          <td>
+                            <a class="btn-box" title="Edit">
+                              <i class="fa fa-pencil"></i>
+                            </a>
+
+                            <a class="btn-box" title="Delete">
+                              <i class="fa fa-trash"></i>
+                            </a>
+                          </td>
+                </tr>
+              <?php
+                        }
+                      }
+                    } else {
+                      $sql = "select id,category_type,category_description from category where agent_name='" . $_SESSION['name'] . "'";
+                      $result = mysqli_query($conn, $sql);
+                      if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while ($row = mysqli_fetch_assoc($result)) {
+              ?>
+                <td data-field="ID"><?php echo $row['id'] ?></td>
+                <td data-field="Date of Purchase"><?php echo $row['company_name'] ?></td>
+                <td data-field="Buying Data"><?php echo $row['location'] ?></td>
+                <td>
+                  <a class="btn-box" title="Edit">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+
+                  <a class="btn-box" title="Delete">
+                    <i class="fa fa-trash"></i>
+                  </a>
+                </td>
+                </tr>
+        <?php
+                        }
+                      }
+                    }
+                  }
+        ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="add-category-panel">
+
+      <div class="content-box-md">
+        <form action="./addCategory.php" class="mainWrap" method="POST">
+          <h1 class="p-b-20">Add a New Category</h1>
+          <label for="">Category Type</label>
+          <br>
+          <input placeholder="Category Type" type="text" name="category_type" />
+          <br>
+          <label for="">Category Description</label>
+          <br>
+          <input placeholder="Category Description" type="text" name="category_description" />
+          <br>
+          <label for="">Agent Name</label>
+          <br>
+          <input placeholder="Agent Name" type="text" name="agent_name" />
+          <br>
+          <button type="submit">Add Category</button>
+        </form>
+      </div>
     </section>
   </section>
 
