@@ -5,9 +5,39 @@
     color: #111;
     transition: all .3s ease-in-out;
     margin: 2px;
+    text-decoration: none;
 }
 .btn-box:hover{
     color: #eee;
     background: var(--blue);
+    border: 1px solid transparent;
+}
+
+.btn-box-light{
+    padding: 10px 20px;
+    border: 1px  solid var(--white);
+    /* border-radius: 30px; */
+    color: #FFF;
+    transition: all .3s ease-in-out;
+    margin: 2px;
+}
+.btn-box-light:hover{
+    color: var(--white);
+    background: red;
+    border: 1px solid transparent;
+}
+
+.btn-box-general{
+    padding: 10px 140px;
+    border: 1px  solid var(--white);
+    color: #FFF;
+    transition: all .3s ease-in-out;
+    /* margin-top: 20px; */
+    transform: translateY(-60px);
+    text-decoration: none;
+}
+.btn-box-general:hover{
+    color: var(--blue);
+    background: var(--white);
     border: 1px solid transparent;
 }

@@ -60,7 +60,8 @@
 .section-products,
 .section-company,
 .section-category,
-.section-sales {
+.section-sales,
+.section-request {
   background-color: #285878;
   padding: 20px;
   /* margin: 15px 0; */
@@ -198,4 +199,40 @@ td:last-child {
 
 #add-category-panel{
   display: none;
+}
+#logout{
+  margin: 100px 135px
+}
+.card{
+  border: solid 1px red; 
+    padding:10px 30px;
+    background-color: #fefefe;
+}
+.float-right{
+   float: right;
+       transform: translateY(-190%);
+}
+.float-right-img{
+    
+   float: right;
+transform: translateY(-290%);
+   
+}
+.buttons{
+    justify-content: center;
+    transform: translateY(-70);
+}
+#sales{
+  width: 100%;
+  cursor: pointer;
+  display: none;
+  padding: 150px 350px;
+}
+
+#new-request{
+  /* display: none; */
+  
+}
+#new-request input{
+  width: 100%;
 }
