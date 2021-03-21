@@ -85,8 +85,6 @@ function philosophyClick() {
     }
 }
 
-document.getElementById("product-view").addEventListener("click", productviewclick);
-
 const firstpanel = document.getElementById("first-dashboard-panel")
 const viewProduct = document.getElementById("all-product-panel")
 const addProduct = document.getElementById("add-product-panel")
@@ -94,6 +92,8 @@ const viewCompany = document.getElementById("all-company-panel")
 const addCompany = document.getElementById("add-company-panel")
 const viewCategory = document.getElementById("all-category-panel")
 const addCategory = document.getElementById("add-category-panel")
+const salesView = document.getElementById("sales")
+const addRequest = document.getElementById("new-request")
 
 function productviewclick(){
     firstpanel.style.display="none";
@@ -103,21 +103,10 @@ function productviewclick(){
     addCompany.style.display="none";
     viewCategory.style.display="none";
     addCategory.style.display="none";
+    salesView.style.display="none";
+    addRequest.style.display="none";
 }
 
-document.getElementById("add-product").addEventListener("click", addproductclick);
-
-function addproductclick(){
-    firstpanel.style.display="none";
-    addProduct.style.display="block";
-    viewProduct.style.display="none";
-    viewCompany.style.display="none";
-    addCompany.style.display="none";
-    viewCategory.style.display="none";
-    addCategory.style.display="none";
-}
-
-document.getElementById("company-view").addEventListener("click", companyviewclick);
 
 function companyviewclick(){
     firstpanel.style.display="none";
@@ -127,8 +116,52 @@ function companyviewclick(){
     addCompany.style.display="none";
     viewCategory.style.display="none";
     addCategory.style.display="none";
+    salesView.style.display="none";
+    addRequest.style.display="none";
 }
-document.getElementById("add-company").addEventListener("click", addCompanyclick);
+
+
+
+function categoryviewclick(){
+    firstpanel.style.display="none";
+    addProduct.style.display="none";
+    viewProduct.style.display="none";
+    viewCompany.style.display="none";
+    addCompany.style.display="none";
+    viewCategory.style.display="block";
+    addCategory.style.display="none";
+    salesView.style.display="none";
+    addRequest.style.display="none";
+}
+
+
+
+function salesviewclick(){
+    firstpanel.style.display="none";
+    addProduct.style.display="none";
+    viewProduct.style.display="none";
+    viewCompany.style.display="none";
+    addCompany.style.display="none";
+    viewCategory.style.display="none";
+    addCategory.style.display="none";
+    salesView.style.display="block";
+    addRequest.style.display="none";
+}
+
+
+
+function addproductclick(){
+    firstpanel.style.display="none";
+    addProduct.style.display="block";
+    viewProduct.style.display="none";
+    viewCompany.style.display="none";
+    addCompany.style.display="none";
+    viewCategory.style.display="none";
+    addCategory.style.display="none";
+    salesView.style.display="none";
+    addRequest.style.display="none";
+}
+
 
 function addCompanyclick(){
     
@@ -139,21 +172,9 @@ function addCompanyclick(){
     addCompany.style.display="block";
     viewCategory.style.display="none";
     addCategory.style.display="none";
+    salesView.style.display="none";
+    addRequest.style.display="none";
 }
-
-document.getElementById("category-view").addEventListener("click", categoryviewclick);
-
-function categoryviewclick(){
-    firstpanel.style.display="none";
-    addProduct.style.display="none";
-    viewProduct.style.display="none";
-    viewCompany.style.display="none";
-    addCompany.style.display="none";
-    viewCategory.style.display="block";
-    addCategory.style.display="none";
-}
-
-document.getElementById("add-category").addEventListener("click", addCategoryclick);
 
 function addCategoryclick(){
     
@@ -164,4 +185,30 @@ function addCategoryclick(){
     addCompany.style.display="none";
     viewCategory.style.display="none";
     addCategory.style.display="block";
+    salesView.style.display="none";
+    addRequest.style.display="none";
 }
+
+function addReuestclick(){
+    
+    addRequest.style.display="block";
+    firstpanel.style.display="none";
+    addProduct.style.display="none";
+    viewProduct.style.display="none";
+    viewCompany.style.display="none";
+    addCompany.style.display="none";
+    viewCategory.style.display="none";
+    addCategory.style.display="none";
+    salesView.style.display="none";
+}
+
+document.getElementById("product-view").addEventListener("click", productviewclick);
+document.getElementById("company-view").addEventListener("click", companyviewclick);
+document.getElementById("category-view").addEventListener("click", categoryviewclick);
+document.getElementById("view-sales").addEventListener("click", salesviewclick);
+
+document.getElementById("add-product").addEventListener("click", addproductclick);
+document.getElementById("add-company").addEventListener("click", addCompanyclick);
+document.getElementById("add-category").addEventListener("click", addCategoryclick);
+document.getElementById("add-request").addEventListener("click", addReuestclick);
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/style/dashboard.css">
+    <link rel="stylesheet" href="../assets/style/helper-class.css">
+    <link rel="stylesheet" href="../assets/style/button.css">
+</head>
+
+<body>
+    <section id="new-request">
+        <div class="content-box-md">
+            <div class="container">
+                <form action="./newRequest.php" class="mainWrap" method="POST">
+                    <h1 class="p-b-20">Add a New Request</h1>
+                    <label for="">Product Name</label>
+                    <br>
+                    <input placeholder="Product Name" type="text" name="product_name" />
+                    <br>
+                    <label for="">Category Type</label>
+                    <br>
+                    <input placeholder="Category Type" type="text" name="category_type" />
+                    <br>
+                    <label for="">Company Name</label>
+                    <br>
+                    <input placeholder="Compamy Name" type="text" name="company_name" />
+                    <br>
+                    <label for="">Quantity</label>
+                    <br>
+                    <input placeholder="Quantity" type="text" name="quantity" />
+                    <br>
+                    <label for="">Agent Name</label>
+                    <br>
+                    <input placeholder="Agent Name" type="text" name="agent_name" />
+                    <button type="submit" class="btn-box">Add Request</button>
+                </form>
+            </div>
+            <div class="m-t-50 text-center">
+                <a href="./dashboard.php" class="btn-box">Back To Home</a>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>

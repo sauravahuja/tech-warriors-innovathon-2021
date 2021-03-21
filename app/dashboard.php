@@ -55,14 +55,14 @@ session_start();
         </div>
         <div id="product-content" class="inactive">
           <?php
-          if($_SESSION['role'] == "Admin" || $_SESSION['role'] == "admin"){
+          if ($_SESSION['role'] == "Admin" || $_SESSION['role'] == "admin") {
           ?>
-          <p class="p-10" id="add-product">Add New</p>
+            <p class="p-10" id="add-product">Add New</p>
           <?php
           }
           ?>
           <p class="p-10" id="product-view">View All</p>
-          </div>
+        </div>
         <br>
         <div class="section-company flexed">
           <p class="section-name text-capitalize">Company</p>
@@ -72,11 +72,11 @@ session_start();
         </div>
         <div id="company-content" class="inactive">
           <?php
-            if($_SESSION['role'] == "Admin" || $_SESSION['role'] == "admin"){
+          if ($_SESSION['role'] == "Admin" || $_SESSION['role'] == "admin") {
           ?>
-          <p class="p-10" id="add-company">Add New</p>
+            <p class="p-10" id="add-company">Add New</p>
           <?php
-            }
+          }
           ?>
           <p class="p-10" id="company-view">View All</p>
         </div>
@@ -89,20 +89,60 @@ session_start();
         </div>
         <div id="category-content" class="inactive">
           <?php
-          if($_SESSION['role'] == "Admin" || $_SESSION['role'] == "admin"){
+          if ($_SESSION['role'] == "Admin" || $_SESSION['role'] == "admin") {
           ?>
-          <p class="p-10" id="add-category">Add New</p>
+            <p class="p-10" id="add-category">Add New</p>
           <?php
           }
           ?>
           <p class="p-10" id="category-view">View All</p>
         </div>
         <br>
-        <div class="section-sales flexed">
-          <p class="section-name text-capitalize">Sales</p>
-          <div class="text-right">
-            <i id="" class="fa fa-angle-right text-right"></i>
+        <?php
+        if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'Admin') {
+        ?>
+          <div class="section-sales flexed">
+            <p id="view-sales" class="section-name text-capitalize">Sales</p>
+            <div class="text-right">
+              <i id="" class="fa fa-angle-right text-right"></i>
+            </div>
           </div>
+          <br>
+        <?php
+        }
+        ?>
+        <div class="m-t-30">
+          <?php
+          if ($_SESSION['role'] == 'agent' || $_SESSION['role'] == 'Agent') {
+          ?>
+            <a href="./newRequest.html" class="btn-box-general">New Req</a>
+          <?php
+          }
+          ?>
+          <?php
+          if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'Admin') {
+          ?>
+            <a href="./showRequests.php" class="btn-box-general">Show Req</a>
+          <?php
+          }
+          ?>
+        </div>
+        <!-- <div class="section-request flexed">
+          <a href="./newRequest.html" id="add-request" class="section-name text-capitalize">Request Product</a>
+          <div class="text-right">
+            <i  class="fa fa-angle-right text-right"></i>
+          </div>
+        </div>
+        <br>
+lass="section-request flexed">
+          <p id="view-requested" class="section-name text-capitalize">Requested Products</p>
+          <div class="text-right">
+            <i  class="fa fa-angle-right text-right"></i>
+          </div>
+        </div> -->
+
+        <div id="logout">
+          <a class="btn-box-light" href="../app/login.html">Logout</a>
         </div>
       </div>
     </section>
@@ -122,7 +162,7 @@ session_start();
                   <th>Product Name</th>
                   <th>Category Type</th>
                   <th>Buying Data</th>
-                  <th>Selling Date</th>
+                  <th>Quantity</th>
                   <th>Company Name</th>
                   <th>Model No</th>
                   <th>Action</th>
@@ -143,7 +183,7 @@ session_start();
                     die("Connection failed: " . $conn->connect_error);
                   } else {
                     if ($_SESSION['role'] == "Admin" || $_SESSION['role'] == "admin") {
-                      $sql = "select id,product_name,category_type,buying_date,selling_date,company_name,model_no from products";
+                      $sql = "select id,product_name,category_type,buying_date,quantity,company_name,model_no from products";
                       $result = mysqli_query($conn, $sql);
                       if (mysqli_num_rows($result) > 0) {
                         // output data of each row
@@ -153,7 +193,7 @@ session_start();
                           <td data-field="Name"><?php echo $row['product_name'] ?></td>
                           <td data-field="Date of Purchase"><?php echo $row['category_type'] ?></td>
                           <td data-field="Buying Data"><?php echo $row['buying_date'] ?></td>
-                          <td data-field="Selling Date"><?php echo $row['selling_date'] ?></td>
+                          <td data-field="Selling Date"><?php echo $row['quantity'] ?></td>
                           <td data-field="Company Name"><?php echo $row['company_name'] ?></td>
                           <td data-field="Model No"><?php echo $row['model_no'] ?></td>
                           <td>
@@ -242,7 +282,7 @@ session_start();
         <br>
         <input placeholder="Quantitites" type="text" name="quantity" />
         <br>
-        <button type="submit">Add Product</button>
+        <button type="submit" class="btn-box">Add Product</button>
       </form>
     </section>
 
@@ -347,7 +387,7 @@ session_start();
           <br>
           <input placeholder="Agent Name" type="text" name="agent_name" />
           <br>
-          <button type="submit">Add Company</button>
+          <button type="submit" class="btn-box">Add Company</button>
         </form>
       </div>
     </section>
@@ -411,8 +451,8 @@ session_start();
                         while ($row = mysqli_fetch_assoc($result)) {
               ?>
                 <td data-field="ID"><?php echo $row['id'] ?></td>
-                <td data-field="Date of Purchase"><?php echo $row['company_name'] ?></td>
-                <td data-field="Buying Data"><?php echo $row['location'] ?></td>
+                <td data-field="Date of Purchase"><?php echo $row['category_type'] ?></td>
+                <td data-field="Buying Data"><?php echo $row['category_description'] ?></td>
                 <td>
                   <a class="btn-box" title="Edit">
                     <i class="fa fa-pencil"></i>
@@ -453,16 +493,95 @@ session_start();
           <br>
           <input placeholder="Agent Name" type="text" name="agent_name" />
           <br>
-          <button type="submit">Add Category</button>
+          <button type="submit" class="btn-box">Add Category</button>
         </form>
       </div>
     </section>
-  </section>
+    <?php
+    if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'Admin') {
+    ?>
+      <section id="sales">
+        <?php
+        $servername = "localhost";
+        $username = "sauravahuja";
+        $password = "sauravahuja";
+        $dbname = "inv_mgmt";
+        $port = "8111";
 
-  <script src="../assets/script/jquery/jquery.min.js"></script>
+        $conn = new mysqli($servername, $username, $password, $dbname, $port);
+        // Check connection
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        } else {
+          $sql = "select quantity,product_rate,agent_name from products";
+          $result = mysqli_query($conn, $sql);
+          if (mysqli_num_rows($result) > 0) {
+            // output data of each row
+            $sauravTotal = 0;
+            $manavSTotal = 0;
+            $manavDTotal = 0;
+            while ($row = mysqli_fetch_assoc($result)) {
+              // echo $row['agent_name'] . " ". $row['product_rate'] * $row['quantity']."<br>";
+              if ($row['agent_name'] == "Saurav Ahuja") {
 
-  <!-- Custom JS -->
-  <script src="../assets/script/dashboard.js"></script>
+                $sauravTotal = $sauravTotal + ($row['product_rate'] * $row['quantity']);
+              }
+              if ($row['agent_name'] == "Manav Shah") {
+
+                $manavSTotal = $manavSTotal + ($row['product_rate'] * $row['quantity']);
+              }
+              if ($row['agent_name'] == "Sneha Birodkar") {
+
+                $manavDTotal = $manavDTotal + ($row['product_rate'] * $row['quantity']);
+              }
+            }
+            // echo $sauravTotal."<br>";
+            // echo $manavSTotal."<br>";
+            // echo $manavDTotal."<br>";
+          }
+        }
+        ?>
+        <?php
+        $dataPoints = array(
+          array("label" => "Saurav Ahuja", "y" => $sauravTotal),
+          array("label" => "Manav Shah", "y" => $manavSTotal),
+          array("label" => "Sneha Birodkar", "y" => $manavDTotal)
+        )
+
+        ?>
+        <script>
+          window.onload = function() {
+
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+              animationEnabled: true,
+              title: {
+                text: "Sales"
+              },
+              subtitles: [{
+                text: "march 2021"
+              }],
+              data: [{
+                type: "pie",
+                yValueFormatString: "#,##0.00\"%\"",
+                indexLabel: "{label} ({y})",
+                dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+              }]
+            });
+            chart.render();
+
+          }
+        </script>
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      </section>
+    <?php
+    }
+    ?>
+    <script src="../assets/script/jquery/jquery.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../assets/script/dashboard.js"></script>
 </body>
 
 </html>
