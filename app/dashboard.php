@@ -54,7 +54,7 @@ session_start();
           </div>
         </div>
         <div id="product-content" class="inactive">
-          <p class="p-10">Add New</p>
+          <p class="p-10" id="add-product">Add New</p>
           <p class="p-10" id="product-view">View All</p>
         </div>
         <br>
@@ -122,34 +122,63 @@ session_start();
                   if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                   } else {
-                    $sql = "select id,product_name,category_type,buying_date,selling_date,company_name,model_no from products where agent_name='" . $_SESSION['name'] . "'";
-                    $result = mysqli_query($conn, $sql);
-                    if (mysqli_num_rows($result) > 0) {
-                      // output data of each row
-                      while ($row = mysqli_fetch_assoc($result)) {
+                    if ($_SESSION['role'] == "Admin" || $_SESSION['role'] == "admin") {
+                      $sql = "select id,product_name,category_type,buying_date,selling_date,company_name,model_no from products";
+                      $result = mysqli_query($conn, $sql);
+                      if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while ($row = mysqli_fetch_assoc($result)) {
                   ?>
-                        <td data-field="ID"><?php echo $row['id'] ?></td>
-                        <td data-field="Name"><?php echo $row['product_name'] ?></td>
-                        <td data-field="Date of Purchase"><?php echo $row['category_type'] ?></td>
-                        <td data-field="Buying Data"><?php echo $row['buying_date'] ?></td>
-                        <td data-field="Selling Date"><?php echo $row['selling_date'] ?></td>
-                        <td data-field="Company Name"><?php echo $row['company_name'] ?></td>
-                        <td data-field="Model No"><?php echo $row['model_no'] ?></td>
-                        <td>
-                          <a class="btn-box" title="Edit">
-                            <i class="fa fa-pencil"></i>
-                          </a>
+                          <td data-field="ID"><?php echo $row['id'] ?></td>
+                          <td data-field="Name"><?php echo $row['product_name'] ?></td>
+                          <td data-field="Date of Purchase"><?php echo $row['category_type'] ?></td>
+                          <td data-field="Buying Data"><?php echo $row['buying_date'] ?></td>
+                          <td data-field="Selling Date"><?php echo $row['selling_date'] ?></td>
+                          <td data-field="Company Name"><?php echo $row['company_name'] ?></td>
+                          <td data-field="Model No"><?php echo $row['model_no'] ?></td>
+                          <td>
+                            <a class="btn-box" title="Edit">
+                              <i class="fa fa-pencil"></i>
+                            </a>
 
-                          <a class="btn-box" title="Delete">
-                            <i class="fa fa-trash"></i>
-                          </a>
-                        </td>
+                            <a class="btn-box" title="Delete">
+                              <i class="fa fa-trash"></i>
+                            </a>
+                          </td>
                 </tr>
-          <?php
+              <?php
+                        }
+                      }
+                    } else {
+                      $sql = "select id,product_name,category_type,buying_date,selling_date,company_name,model_no from products where agent_name='" . $_SESSION['name'] . "'";
+                      $result = mysqli_query($conn, $sql);
+                      if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while ($row = mysqli_fetch_assoc($result)) {
+              ?>
+                <td data-field="ID"><?php echo $row['id'] ?></td>
+                <td data-field="Name"><?php echo $row['product_name'] ?></td>
+                <td data-field="Date of Purchase"><?php echo $row['category_type'] ?></td>
+                <td data-field="Buying Data"><?php echo $row['buying_date'] ?></td>
+                <td data-field="Selling Date"><?php echo $row['selling_date'] ?></td>
+                <td data-field="Company Name"><?php echo $row['company_name'] ?></td>
+                <td data-field="Model No"><?php echo $row['model_no'] ?></td>
+                <td>
+                  <a class="btn-box" title="Edit">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+
+                  <a class="btn-box" title="Delete">
+                    <i class="fa fa-trash"></i>
+                  </a>
+                </td>
+                </tr>
+        <?php
+                        }
                       }
                     }
                   }
-          ?>
+        ?>
               </tbody>
             </table>
           </div>
@@ -157,6 +186,45 @@ session_start();
       </div>
     </section>
 
+    <section id="add-product-panel">
+
+      <form action="./addProduct.php" class="mainWrap" method="POST">
+        <h1 class="p-b-20">Add a New Product</h1>
+        <label for="">Product Name</label>
+        <br>
+        <input placeholder="Product Name" type="text" name="name" />
+        <br>
+        <label for="">Category Type</label>
+        <br>
+        <input placeholder="Category Type" type="text" name="category" />
+        <br>
+        <label for="">Buying Date</label>
+        <br>
+        <input placeholder="Buying Date" type="text" name="buying" />
+        <br>
+        <label for="">Selling Date</label>
+        <br>
+        <input placeholder="Selling Date" type="text" name="selling" />
+        <br>
+        <label for="">Company Name</label>
+        <br>
+        <input placeholder="Company Name" type="text" name="company" />
+        <br>
+        <label for="">Model No</label>
+        <br>
+        <input placeholder="Model No" type="text" name="model" />
+        <br>
+        <label for="">Agent Name</label>
+        <br>
+        <input placeholder="Agent Name" type="text" name="agent" />
+        <br>
+        <label for="">Quantities</label>
+        <br>
+        <input placeholder="Quantitites" type="text" name="quantity" />
+        <br>
+        <button type="submit">Add Product</button>
+      </form>
+    </section>
   </section>
 
   <script src="../assets/script/jquery/jquery.min.js"></script>

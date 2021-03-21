@@ -88,7 +88,17 @@ function philosophyClick() {
 document.getElementById("product-view").addEventListener("click", productviewclick);
 const firstpanel = document.getElementById("first-dashboard-panel")
 const viewProduct = document.getElementById("all-product-panel")
+const addProduct = document.getElementById("add-product-panel")
 function productviewclick(){
     firstpanel.style.display="none";
+    addProduct.style.display="none";
     viewProduct.style.display="block";
+}
+
+document.getElementById("add-product").addEventListener("click", addproductclick);
+
+function addproductclick(){
+    firstpanel.style.display="none";
+    addProduct.style.display="block";
+    viewProduct.style.display="none";
 }
