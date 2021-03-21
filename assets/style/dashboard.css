@@ -201,7 +201,7 @@ td:last-child {
   display: none;
 }
 #logout{
-  margin: 100px 135px
+  /* margin: 50px 135px */
 }
 .card{
   border: solid 1px red; 
