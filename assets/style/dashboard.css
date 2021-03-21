@@ -165,3 +165,18 @@ td:last-child {
 #all-product-panel{
   display: none;
 }
+
+#add-product-panel{
+  background-color: #eef6fc;
+  width: 100%;  
+  display: none;
+}
+.mainWrap{
+  padding: 20px 300px;
+}
+.mainWrap input{
+  margin: 10px;
+  padding: 7px;
+  width: 500px;
+}
+
